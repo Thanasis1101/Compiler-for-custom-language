@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1505856156 source:c:\users\thanasis\documents\codeblocks\preprocessor\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

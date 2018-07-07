@@ -1,0 +1,8 @@
+int showString(char str[], int length){
+	int i;
+	for (i = 0; i<length; i++){
+		print str[i];
+	}
+	print '\n';
+	return 0;
+}

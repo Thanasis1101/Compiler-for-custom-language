@@ -1,0 +1,10 @@
+int calc_a_plus_b_squared(int a, int b){
+	return a*a + 2*a*b + b*b;
+}
+
+int main(){
+	
+	int x=3, y=18;	
+	return calc_a_plus_b_squared(x, y);
+	
+}

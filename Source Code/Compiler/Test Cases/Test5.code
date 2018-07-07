@@ -1,0 +1,22 @@
+int modulo(int a, int b){
+	return a - (a/b)*b;
+}
+
+int reverseNumber(int x){
+	
+    int reversedNumber = 0, remainder;
+
+    while(x != 0)
+    {
+        remainder = modulo(x,10);
+        reversedNumber = reversedNumber*10 + remainder;
+        x = x/10;
+    }
+
+    return reversedNumber;
+	
+}
+
+int main(){
+	return reverseNumber(378);
+}

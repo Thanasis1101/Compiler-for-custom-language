@@ -1,0 +1,17 @@
+int modulo(int a, int b){
+	return a - (a/b)*b;
+}
+
+int isEven(int x){
+
+    if (modulo(x,2)){
+		return 0;
+	} else {
+		return 1;
+	}
+	
+}
+
+int main(){
+	return isEven(14);
+}

@@ -1,0 +1,12 @@
+int absolute(int a){
+	if (a>0){
+		return a;
+	} else {
+		return 0-a;
+	}
+}
+
+int main(){
+	
+	return absolute(-795);
+}

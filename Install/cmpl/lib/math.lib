@@ -1,0 +1,3 @@
+include C:\cmpl\lib\i_sqrt.lib
+include C:\cmpl\lib\power.lib
+include C:\cmpl\lib\abs.lib

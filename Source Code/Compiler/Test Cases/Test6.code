@@ -1,0 +1,25 @@
+int modulo(int a, int b){
+	return a - (a/b)*b;
+}
+
+int isPrime(int x){
+	
+    int i=2;
+
+	while (i<=x/2)
+    {
+        // condition for nonprime number
+        if(modulo(x,i)==0)
+        {
+            return 0;
+        } else {}
+		i = i+1;
+    }
+	
+    return 1;
+	
+}
+
+int main(){
+	return isPrime(17);
+}

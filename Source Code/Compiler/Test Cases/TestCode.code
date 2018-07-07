@@ -1,0 +1,38 @@
+real[] reverse(real a[], int length){
+
+	int i;
+	
+	for (i=0; i<length/2; i++){
+		a[i], a[length-i-1] = a[length-i-1], a[i];
+	}
+
+	return a;
+}
+
+int show(real a[], int length){
+
+	int i;
+	
+	for (i=0; i<length; i++){
+		print a[i];
+	}
+	
+	return 0;
+	
+}
+
+int main(){
+
+	real a[4], p[4];
+	real k=65, b=45;
+		
+	a[0], a[1], a[2], a[3] = 4, 5.67, 23, 45567;
+	
+	k = show(a, 4);
+	p = reverse(a, 4);
+	k = show(p, 4);
+	
+	
+	return 0;
+	
+}

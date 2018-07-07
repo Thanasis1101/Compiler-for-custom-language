@@ -1,0 +1,23 @@
+int calc_power(int x, int power){
+	int i=2, result = x;
+	while (power >= i){
+		result = result * x;
+		i = i + 1;
+	}
+	return result;
+}
+
+int calc_square(int x){
+	return calc_power(x, 2);
+}
+
+int calc_a_plus_b_squared(int a, int b){
+	return calc_square(a) + 2*a*b + calc_square(b);
+}
+
+int main(){
+	
+	int x=3, y=18;	
+	return calc_a_plus_b_squared(x, y);
+	
+}

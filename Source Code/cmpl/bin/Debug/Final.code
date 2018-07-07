@@ -1,0 +1,13 @@
+int calcSum(int limit){
+	int i=0;
+	int sum;
+	while (i<=limit){
+		sum = sum+i;
+		i = i+1;
+	}
+	return sum;
+}
+
+int main(){
+	return calcSum(5);
+}
