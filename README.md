@@ -1,5 +1,14 @@
 # Compiler for custom language
-This repository includes a compiler for a custom language, which was built using flex and byacc. It translates from this custom language to assembly and then creates the executable.
+This repository includes a compiler for a custom language, which was built using flex and byacc. It translates from this custom language to assembly and then creates the executable. This project is an extension of a project from my university on a subject about compilers.
+
+## Index
+
+[Custom Language Syntax](#custom-language-syntax)
+
+[Install and Execute](#install-and-execute)
+
+[Files explained](#files-explained)
+
 
 ## Custom Language Syntax
 The syntax of the language is very similar to the syntax of C. It supports 3 types: int, real and char. It also supports functions, arrays, recursion, use of include (if you run the preprocessor), if-else, for, while and more.
@@ -247,4 +256,36 @@ Now if you want to start developing on this wierd language you can use [Notepad+
 
 
 
+## Files explained
+
+- **Compiler** ([Source code](Source%20Code/Compiler), [Executable](Install/cmpl/Compiler.exe))
+
+  This is where all the magic happens. This is the program that makes the translation from the source file to the assembly code. To pass a file for compilation you can execute ``Compiler < Test1.code`` in cmd. This will generate 2 ``.asm`` files, one with the data (AssemblyData.asm) and one with the code (AssemblyCode.asm). In order to do this translation, we pass through 3 different stages:
+  - Lexical Analysis
+  
+    Here we seperate all the words from the source file by the spaces, and we pass them to the syntax analysis providing the information of what each word/symbol represents. The source code that is repsonsible for this stage is [LexicalAnalysis.flex](Source%20Code/Compiler/LexicalAnalysis.flex). For this stage the [flex](Source%20Code/Compiler/flex.exe) program is necessary.
+  
+  - Syntax Analysis
+  
+    On this stage, we get the words with their information, and try to tell if the syntax is according to our language definition, which means that it follows the structure we want. When there is an inconsistency, we output the message "syntax error". Here there is a syntax tree created, which will later be used for the semantic analysis. The source code that is repsonsible for this stage is [SyntaxAnalysis.yacc](Source%20Code/Compiler/SyntaxAnalysis.yacc). For this stage the [yacc](Source%20Code/Compiler/yacc.exe) program is necessary.
+  
+  - Semantic Analysis
+  
+    Last but not least, we do the semantic analysis, which includes some extra tests (e.g. if the variable has not been declared, or is redeclared etc.) and the creation of the assembly files. In order to achieve that, we parse the syntax tree that was created during the previous step, and append lines of assembly code to the correct output file. The source code that is repsonsible for this stage is [Semantics.c](Source%20Code/Compiler/Semantics.c).
+    
+  In order to combine the steps above and create the Compiler.exe, we can run the [CreateCompiler.bat](Source%20Code/Compiler/CreateCompiler.bat), which includes the following lines:
+  
+  ```
+  yacc -dv SyntaxAnalysis.yacc
+  flex LexicalAnalysis.flex
+  gcc lex.yy.c y.tab.c zyywrap.c Semantics.c -o Compiler.exe
+  ```
+
+- **preprocessor** ([Source code](Source%20Code/preprocessor/main.c), [Executable](Install/cmpl/preprocessor.exe))
+
+  This program is necessary for replacing the include lines with the appropriate code and creating the FinalCode.code file (see [includes](#custom-language-syntax) for more). This process occurs recursively for the included files that have other includes. In order to run the preprocessor you can execute ``preprocessor Test1.code`` in cmd.
+
+- **cmpl** ([Source code](Source%20Code/cmpl/main.c), [Executable](Install/cmpl/cmpl.exe))
+
+  This program is the final product. It combines the preprocessor and the Compiler executables, and also creates the final executable. First it executes the preprocessor for the input source file (``preprocessor Test1.code``). It then runs the Compiler for the file that the preprocessor just created (``Compiler C:\cmpl\FinalCode.code``). Then it combines the 2 assembly files in 1 and creates the final assembly file (``copy C:\cmpl\AssemblyData.asm+C:\cmpl\AssemblyCode.asm C:\cmpl\AssemblyFinal.asm > NUL``). From this file, it creates the object file using nasm (``nasm -f win32 C:\cmpl\AssemblyFinal.asm -o C:\cmpl\AssemblyFinal.obj``). Finally, it creates the executable file using gcc (``gcc -m32 -o %s.exe C:\cmpl\AssemblyFinal.obj``). This process is repeated for every source file that you give as input (e.g. running ``cmpl Test1.code Test2.code`` will create 2 executeables - Test1.exe and Test2.exe). In the end, it erases all the intermediate files that are no longer needed. If you wish to see the assembly and other files created in this process, you can execute the steps above manually.
 
