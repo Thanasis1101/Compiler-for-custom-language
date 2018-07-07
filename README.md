@@ -231,9 +231,11 @@ IN
 
 In order to run the compiler you should follow these steps:
 
+- Download and install the [GCC](https://sourceforge.net/projects/tdm-gcc/) compiler (I used the 5.3.0 version)
+- Download and install the [NASM](https://www.nasm.us/pub/nasm/releasebuilds/?C=M;O=D) assembler (I used the [2.13.01 version](https://www.nasm.us/pub/nasm/releasebuilds/2.13.01/win64/))
+- Add both programs above to the system's path variable (see instructions [here](https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/))
 - Download the folder [Install](Install)
 - Copy the folder [cmpl](Install/cmpl) under your C:// folder
-- Download and install the [NASM](https://www.nasm.us/pub/nasm/releasebuilds/?C=M;O=D) assembler (I used the [2.13.01 version](https://www.nasm.us/pub/nasm/releasebuilds/2.13.01/win64/))
 - Open cmd and navigate (``cd path``) to the folder with the source code file (you can use one from the [Examples](Examples))
 - Let's say you have the Test1.code source file. Execute: ``C:\cmpl\cmpl Test1.code``
 - Now, if the compilation was successful, there will be an exe with the same name of the source file (Test1.exe). You can run ``Test1`` and enjoy !!!
