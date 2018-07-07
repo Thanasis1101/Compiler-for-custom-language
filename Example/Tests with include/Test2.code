@@ -1,0 +1,15 @@
+include math.lib
+
+int main(){
+
+	int p, a, b;
+	b = 2;
+	a = (b+55)*2;
+	p = power(a,b);
+	
+	print p;
+	
+	
+	return 0;
+	
+}
