@@ -1,17 +1,14 @@
 int calcSum(int limit){
 	int i=0;
 	int sum;
-	while (true){
+	while (i<=limit){
 		sum = sum+i;
 		i = i+1;
-		if (i>limit){
-			break;
-		} else {}
-			
 	}
 	return sum;
 }
 
 int main(){
-	return calcSum(5);
+	println calcSum(5);
+	return 0;
 }

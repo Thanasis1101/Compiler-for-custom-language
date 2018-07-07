@@ -14,7 +14,7 @@ int show(real a[], int length){
 	int i;
 	
 	for (i=0; i<length; i++){
-		print a[i];
+		println a[i];
 	}
 	
 	return 0;

@@ -21,6 +21,8 @@ int main(){
 	
 	int x=36, y=-15, z=48, max;
 	max = max(x, y, z);
-	return max;
+	
+	println max;
+	return 0;
 	
 }

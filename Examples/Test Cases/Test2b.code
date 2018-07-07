@@ -18,6 +18,8 @@ int calc_a_plus_b_squared(int a, int b){
 int main(){
 	
 	int x=3, y=18;	
-	return calc_a_plus_b_squared(x, y);
+	
+	println calc_a_plus_b_squared(x, y);
+	return 0;
 	
 }

@@ -21,5 +21,6 @@ int isPrime(int x){
 }
 
 int main(){
-	return isPrime(17);
+	println isPrime(17);
+	return 0;
 }

@@ -18,5 +18,6 @@ int calcGCD(int n1, int n2){
 }
 
 int main(){
-	return calcGCD(81, 153);
+	println calcGCD(81, 153);
+	return 0;
 }

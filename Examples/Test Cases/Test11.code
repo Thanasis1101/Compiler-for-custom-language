@@ -1,0 +1,24 @@
+int main(){
+
+
+	int i=0, unused, length = 50;
+	real a[50], v, factor;
+	
+	read "Starting value: ", v;	
+	
+	print "Give the factor: ";
+	read factor;
+	
+	repeat length times{
+		a[i] = (v+i)*factor;
+		i++;
+	}	
+	
+	for (i=0; i<length; i++){
+		println (v+i), " * ", factor, " = ", a[i];
+	}
+	
+
+	return 0;
+
+}

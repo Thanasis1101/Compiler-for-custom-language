@@ -1,0 +1,22 @@
+int main(){
+
+	int i,j,k;
+	
+	i=j=k=10;
+	println i, " ", j, " ", k;
+	i,j,k=1,2,3;
+	println i, " ", j, " ", k;
+	i,j=j,i;
+	println i, " ", j, " ", k;
+	i+=j+k;
+	println i, " ", j, " ", k;
+	if (i>k and j<k){
+		println "IN";
+		j++;
+	}
+	println i, " ", j, " ", k;
+	if (k-3)
+		println "IN2"; // it doesn't execute becuase k=3
+	
+	return 0;
+}

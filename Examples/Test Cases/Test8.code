@@ -13,5 +13,6 @@ int isEven(int x){
 }
 
 int main(){
-	return isEven(14);
+	println isEven(14);
+	return 0;
 }

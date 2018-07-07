@@ -7,6 +7,6 @@ int absolute(int a){
 }
 
 int main(){
-	
-	return absolute(-795);
+	println absolute(-795);
+	return 0;
 }

@@ -3743,7 +3743,7 @@ void ProcessIfElseStatement(AstNode*p, int lev){
 					
 					fprintf(asmCode, "    mov  ecx, [%s]\n", lhs->MIXname);
 					fprintf(asmCode, "    cmp  ecx, 0\n");
-					fprintf(asmCode, "    je   EndIf%d\n", tempNumIfs);
+					fprintf(asmCode, "    je   Else%d\n", tempNumIfs);
 					
 					CodeGeneration(p->pAstNode[1],lev+1,0,0); // Statement (if)					
 					
@@ -3768,7 +3768,7 @@ void ProcessIfElseStatement(AstNode*p, int lev){
 					
 					fprintf(asmCode, "    mov  ecx, [REG_INT]\n");
 					fprintf(asmCode, "    cmp  ecx, 0\n");
-					fprintf(asmCode, "    je   EndIf%d\n", tempNumIfs);
+					fprintf(asmCode, "    je   Else%d\n", tempNumIfs);
 					
 					CodeGeneration(p->pAstNode[1],lev+1,0,0); // Statement (if)					
 					
@@ -3796,7 +3796,7 @@ void ProcessIfElseStatement(AstNode*p, int lev){
 					fprintf(asmCode, "    fldz\n");
 					fprintf(asmCode, "    fcomip\n");
 					fprintf(asmCode, "    ffreep\n");
-					fprintf(asmCode, "    jz   EndIf%d\n", tempNumIfs);
+					fprintf(asmCode, "    jz   Else%d\n", tempNumIfs);
 					
 					CodeGeneration(p->pAstNode[1],lev+1,0,0); // Statement (if)					
 					
@@ -3823,7 +3823,7 @@ void ProcessIfElseStatement(AstNode*p, int lev){
 					fprintf(asmCode, "    fldz\n");
 					fprintf(asmCode, "    fcomip\n");
 					fprintf(asmCode, "    ffreep\n");
-					fprintf(asmCode, "    jz   EndIf%d\n", tempNumIfs);
+					fprintf(asmCode, "    jz   Else%d\n", tempNumIfs);
 					
 					CodeGeneration(p->pAstNode[1],lev+1,0,0); // Statement (if)					
 					
